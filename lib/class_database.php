@@ -7,25 +7,27 @@
 
 class DB
 {
-	private $servername = "localhost";
+	private $servername = "127.0.0.1";
 	private $username 	= "root";
-	private $password 	= "";
+	private $password 	= "evrotip";
 	private $dbname		= "junior_developer_task_test";
 	private $conn		= null;
+
 	/**
 	 */
-	public function __construct(){
+	public function __construct()
+	{
 		try {
-		  $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
-		  $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		  $statement  = $this->conn->prepare("SET NAMES 'utf8'");
-		  $statement->execute();
-		  ini_set('default_charset', 'utf-8');
-		} catch(PDOException $e) {
-		  echo "Connection failed: " . $e->getMessage();
+			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
+			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$statement  = $this->conn->prepare("SET NAMES 'utf8'");
+			$statement->execute();
+			ini_set('default_charset', 'utf-8');
+		} catch (PDOException $e) {
+			echo "Connection failed: " . $e->getMessage();
 		}
 	}
-	
+
 	/**
 	 * @param mixed $table_name
 	 * @param mixed $columns_name
@@ -33,8 +35,9 @@ class DB
 	 * 
 	 * @return [type]
 	 */
-	public function insertRow($table_name,$columns_name,$columns_value){
-		$stmt=$this->conn->prepare("INSERT INTO $table_name($columns_name)
+	public function insertRow($table_name, $columns_name, $columns_value)
+	{
+		$stmt = $this->conn->prepare("INSERT INTO $table_name($columns_name)
 		VALUES($columns_value)");
 		$stmt->execute();
 	}
@@ -46,8 +49,9 @@ class DB
 	 * 
 	 * @return [type]
 	 */
-	public function deleteRow($table_name,$pk_name,$pk_value) {
-		$stmt=$this->conn->prepare("DELETE FROM $table_name 
+	public function deleteRow($table_name, $pk_name, $pk_value)
+	{
+		$stmt = $this->conn->prepare("DELETE FROM $table_name 
 		WHERE $pk_name=$pk_value");
 		$stmt->execute();
 	}
@@ -57,11 +61,10 @@ class DB
 	 * 
 	 * @return [type]
 	 */
-	public function selectRow($table_name){
-		$stmt=$this->conn->prepare("SELECT * from ".$table_name);
+	public function selectRow($table_name)
+	{
+		$stmt = $this->conn->prepare("SELECT * from " . $table_name);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-
 }
-?>

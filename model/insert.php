@@ -27,7 +27,6 @@ switch($table_name){
 
     default:
     echo "Wrong table";
+
     break;
 }
-
-?>

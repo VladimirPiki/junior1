@@ -1,58 +1,73 @@
 @font-face {
-	font-family: Decima Nova;
-	src: url('../fonts/Decima\ Nova.ttf');
+    font-family: Decima Nova;
+    src: url('../fonts/Decima\ Nova.ttf');
 }
-*{
-	margin: 0;
-	padding: 0;
+
+* {
+    margin: 0;
+    padding: 0;
 }
-html{
-	font-family: Decima Nova;
-	font-size: 17px;
+
+html {
+    font-family: Decima Nova;
+    font-size: 17px;
 }
-body{
+
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-.myNav{
+
+.myNav {
     background-color: #029934;
     text-align: center;
     vertical-align: middle;
     color: white;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
-button{
+
+button {
     border: 1px outset black;
     background-color: whitesmoke;
     border-radius: 30px;
     margin: 20px;
     padding: 10px;
 }
-a:hover,button:hover{
+
+a:hover,
+button:hover {
     color: #029934;
 }
-.firstSection{
+
+.firstSection {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
 }
+
 @media only screen and (max-width: 500px) {
-    .firstSection{
+    .firstSection {
         display: inline-block;
         justify-content: space-around;
         margin-top: 10px;
         text-align: center;
     }
 }
-footer{
-	margin-top: auto;
+
+footer {
+    margin-top: auto;
     padding: 10px;
-	background-color:#1C4A9F;
-	text-align: center;
-    color:white;
-	font-size: 24px;
+    background-color: #1C4A9F;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}
+
+.myContainer {
+    margin-bottom: 20px !important;
 }
