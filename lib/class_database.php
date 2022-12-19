@@ -7,9 +7,9 @@
 
 class DB
 {
-	private $servername = "127.0.0.1";
+	private $servername = "localhost";
 	private $username 	= "root";
-	private $password 	= "evrotip";
+	private $password 	= "";
 	private $dbname		= "junior_developer_task_test";
 	private $conn		= null;
 
