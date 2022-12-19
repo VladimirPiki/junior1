@@ -12,7 +12,6 @@ class DB
 	private $password 	= "";
 	private $dbname		= "junior_developer_task_test";
 	private $conn		= null;
-testtest
 	/**
 	 */
 	public function __construct(){
