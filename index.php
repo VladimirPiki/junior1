@@ -30,13 +30,14 @@
     ?>
 
     <div class="container">
-        <div class="firstSection">
+        <div class="firstSection" id="firstSection">
+
             <div class="mt-3">
                 <h1>Product List</h1>
             </div>
             <div>
-                <button>
-                    <a href="#!details_products"> ADD PRODUCT </a>
+                <button id="addproduct">
+                    <a> ADD PRODUCT </a>
                 </button>
                 <button>MASS DELETE</button>
             </div>
@@ -46,7 +47,7 @@
     <hr>
 
     <div class="container myContainer">
-        <div class="row myContainer" id="ajtuka">
+        <div class="row myContainer" id="showProduct">
         </div>
     </div>
 
@@ -56,25 +57,3 @@
 </body>
 
 </html>
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Question Form</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Fontawesome Sytle CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-</head>
-
-<body>
