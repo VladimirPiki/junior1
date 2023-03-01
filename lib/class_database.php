@@ -42,6 +42,8 @@ class DB
 		if($stmt->execute()){
 			echo "success";
 		};
+
+		sakam nesto
 	}
 
 	/**
