@@ -43,7 +43,7 @@ class DB
 			echo "success";
 		};
 	}
-suppeeerr
+
 	/**
 	 * @param mixed $table_name
 	 * @param mixed $pk_name
