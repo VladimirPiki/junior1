@@ -44,6 +44,8 @@ class DB
 		};
 	}
 
+	posleden test
+
 	/**
 	 * @param mixed $table_name
 	 * @param mixed $pk_name
