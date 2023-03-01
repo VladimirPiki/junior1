@@ -24,25 +24,46 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `price` decimal(20,2) unsigned NOT NULL,
-  `attributes` enum('MB','Kg','HxWxL') NOT NULL,
-  `value` varchar(50) NOT NULL,
+  `attributes` enum('Size','Weight','Dimension') NOT NULL,
+  `height` smallint(4) unsigned DEFAULT NULL,
+  `width` smallint(4) unsigned DEFAULT NULL,
+  `length` smallint(4) unsigned DEFAULT NULL,
+  `mb` mediumint(5) unsigned DEFAULT NULL,
+  `kg` smallint(4) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table junior_developer_task_test.product: ~12 rows (approximately)
-INSERT INTO `product` (`id`, `name`, `price`, `attributes`, `value`) VALUES
-	('B-AND-KOSL', 'United Macedonia', 99.99, 'Kg', '2'),
-	('B-DAR-SOKO', 'Belomorska Macedonia', 78.59, 'Kg', '1.7'),
-	('B-DAR-ZOLT', 'Macedonia', 98.79, 'Kg', '1.2'),
-	('B-ZOR-RUME', 'One name Macedonia', 17.56, 'Kg', '1.15'),
-	('D-BLA-POPO', 'Frog Green', 239.88, 'HxWxL', '40x45x40'),
-	('D-DEJ-RIST', 'Modern Gray Desk', 980.00, 'HxWxL', '25x35x35'),
-	('D-ELE-KRST', 'for her', 409.33, 'HxWxL', '24x30x30'),
-	('D-STE-TIGA', 'Black Desk', 400.00, 'HxWxL', '20x30x30'),
-	('G-ANT-KRST', 'Kick Box 2023', 28.71, 'MB', '349'),
-	('G-DAR-KRST', 'newGame2022', 40.01, 'MB', '40'),
-	('G-ELE-MARK', 'Free Football 2022', 51.01, 'MB', '188'),
-	('G-VLA-KRST', 'Open World 2025', 33.45, 'MB', '299');
+-- Dumping data for table junior_developer_task_test.product: ~18 rows (approximately)
+INSERT INTO `product` (`id`, `name`, `price`, `attributes`, `height`, `width`, `length`, `mb`, `kg`) VALUES
+	('123123123', '21asdasdasd', 1221.00, 'Size', 0, 0, 0, 0, 100),
+	('B-AND-KOSL', 'United Macedonia', 100.00, 'Weight', NULL, NULL, NULL, NULL, 13),
+	('B-DAR-SOKO', 'Belomorska Macedonia', 79.00, 'Weight', NULL, NULL, NULL, NULL, 12),
+	('B-DAR-ZOLT', 'Macedonia', 99.00, 'Weight', NULL, NULL, NULL, NULL, 11),
+	('B-ZOR-RUME', 'One name Macedonia', 18.00, 'Weight', NULL, NULL, NULL, NULL, 10),
+	('dasdasdasd', 'dasdasd', 123123.00, 'Dimension', 10, 10, 10, 0, 0),
+	('G-ANT-KRST', 'Kick Box 2023', 29.00, 'Size', NULL, NULL, NULL, 33, NULL),
+	('G-DAR-KRST', 'newGame2022', 40.00, 'Size', NULL, NULL, NULL, 333, NULL),
+	('G-ELE-MARK', 'Free Football 2022', 51.00, 'Size', NULL, NULL, NULL, 3, NULL),
+	('G-VLA-KRST', 'Open World 2025', 33.00, 'Size', NULL, NULL, NULL, 123, NULL),
+	('nenenennene', 'hahahahahah', 5.00, 'Size', 10, 10, 10, 123, NULL),
+	('proba', 'hahahahahah', 5.50, 'Dimension', 12, 12, 12, 0, NULL),
+	('proba1', 'hhhhhhhhhhh', 5.50, 'Size', NULL, NULL, NULL, NULL, NULL),
+	('proba2', 'proba2', 5.50, 'Size', NULL, NULL, NULL, NULL, NULL),
+	('proba3', 'proba3', 1.30, 'Size', NULL, NULL, NULL, NULL, NULL),
+	('proba4', 'proba4', 1.23, 'Size', NULL, NULL, NULL, NULL, NULL),
+	('SADASDA', 'QWQWQQ', 1112.00, 'Size', NULL, NULL, NULL, NULL, NULL),
+	('sasadsadas', 'dasdasd', 212121.00, 'Size', NULL, NULL, NULL, NULL, NULL);
+
+-- Dumping structure for table junior_developer_task_test.size
+CREATE TABLE IF NOT EXISTS `size` (
+  `size_id` int(11) DEFAULT NULL,
+  `size` set('Size') NOT NULL DEFAULT 'Size',
+  `mb` smallint(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table junior_developer_task_test.size: ~0 rows (approximately)
+INSERT INTO `size` (`size_id`, `size`, `mb`) VALUES
+	(1, 'Size', 200);
 
 -- Dumping structure for procedure junior_developer_task_test._delete_product
 DELIMITER //
@@ -74,7 +95,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE `_select_product`()
 BEGIN
-SELECT * FROM product;
+SELECT id,`name`,price,attributes,CONCAT(height,"x",width,"x",`length`) AS `dimension`,CONCAT(kg," ","KG") as weight,CONCAT (mb," ","MB") AS size FROM product;
 END//
 DELIMITER ;
 

@@ -1,43 +1,154 @@
-console.log("test");
-////////////////////////////////--------INSERT-------------////////////////////////////////////////////////////////
+$(document).ready(function () {
+  $("#dangerSku").hide();
+  $("#dangerName").hide();
+  $("#dangerPrice").hide();
+  $("#dangerSize").hide();
+  $("#dangerWeight").hide();
+  $("#dangerHeight").hide();
+  $("#dangerWidth").hide();
+  $("#dangerLength").hide();
+  $("#dangerValue").hide();
+  $("#switcherSize").hide();
+  $("#switcherWeight").hide();
+  $("#switcherFurniture").hide();
 
-$(document).on("click", "#proba", function () {
-  $("#probaTuka").append(
-    '<span class="mb-3">' +
-      '<label for="" class=" form-label">Size</label>' +
-      '<input type="number" class="form-control" id="price">' +
-      "</span>"
-  );
+  $("#productType").on("change", function () {
+    $("#infoType").hide();
+    let selectOption = $("option:selected").val();
+    
+    if (selectOption === "Size") {
+      $("#switcherSize").show();
+      $("#switcherWeight").hide();
+      $("#switcherFurniture").hide();
+      $("#dangerValue").hide();
+    } else if (selectOption === "Weight") {
+      $("#switcherWeight").show();
+      $("#switcherFurniture").hide();
+      $("#switcherSize").hide();
+      $("#dangerValue").hide();
+    } else if (selectOption === "Dimension") {
+      $("#switcherFurniture").show();
+      $("#switcherSize").hide();
+      $("#switcherWeight").hide();
+      $("#dangerValue").hide();
+    } else {
+      $("#infoType").show();
+      $("#switcherSize").hide();
+      $("#switcherWeight").hide();
+      $("#switcherFurniture").hide();
+    }
+  });
 });
-$(document).on(function () {});
 
-/*
-$(document).on("click", "#save", function () {
-  let addOriginalName = $("#originalName").val();
-  let addAlternativeName = $("#alternativeName").val();
-  let addSport = $("#natprevaruvanjeSport").find(":selected").val();
-  let addEfTeam = $("#efTeam").val();
-  let objTeams = [
+///// This is for input field do not recive negative numbers
+$(document).on(
+  "input",
+  "#size",
+  function () {
+    this.value = this.value.replace(/\D/g, "");
+  }
+);
+
+$(document).on("click", "button", function () {
+  let addSku = $("#sku").val();
+  let addName = $("#name").val();
+  let addPrice = $("#price").val();
+  let addType = $("#productType").find(":selected").val();
+  let addSize = $("#size").val();
+  let addWeight = $("#weight").val();
+  let addHeight = $("#height").val();
+  let addWidth = $("#width").val();
+  let addLength = $("#length").val();
+
+if(addSize != ""){
+  var addValue=addSize+" MB";
+}
+
+if(addWeight != ""){
+  var addValue=addWeight+" Kg";
+}
+
+if(addHeight != "" && addWidth != "" && addLength != ""){
+  var addValue=addHeight+"x"+addWidth+"x"+addLength;
+}
+  let objProduct = [
     {
-      original_name: addOriginalName,
-      alternative_name: addAlternativeName,
-      sport: addSport,
-      ef_team: addEfTeam,
-      table_name: "teams",
+      id: addSku,
+      name: addName,
+      price: addPrice,
+      attributes: addType,
+      value: addValue,
+      "table_name": "product"
     },
   ];
-  //console.log(objTeams)
-  if (addOriginalName.length > 3 && addSport != "" && addEfTeam.length != "") {
-    if (findCellInTable("#myTable", "#originalName") == -1) {
-      postData("insert", objTeams);
-      alert("Успешно додадовте");
-      window.location.href = "../view/teams.html";
-    } else {
-      alert("Записот постои!!!");
-      window.location.href = "../view/teams.html";
-    }
+
+  if (addSku != "" && addName != "" && addPrice != "" && addType != "Type switcher" && addValue != undefined) {
+    postData("insert", objProduct);
   } else {
-    alert("Неуспешно додадовте. Пополнете правилно!!!");
+    if( addSku === ""){
+      $("#dangerSku").show();
+    }else{
+      $("#dangerSku").hide();
+    }
+
+    if( addName === ""){
+      $("#dangerName").show();
+    }else{
+      $("#dangerName").hide();
+    }
+
+    if( addPrice === ""){
+      $("#dangerPrice").show();
+    }else{
+      $("#dangerPrice").hide();
+    }
+
+    if(addType === "Type switcher"){
+      $("#dangerValue").show();
+      $("#infoType").hide();
+    }else{
+      $("#dangerValue").hide();
+      $("#infoType").show();
+    }
+
+    if( addSize === ""){
+      $("#dangerSize").show();
+      $("#infoSize").hide();
+    }else{
+      $("#dangerSize").hide();
+      $("#infoSize").show();
+    }
+
+    if( addWeight === ""){
+      $("#dangerWeight").show();
+      $("#infoWeight").hide();
+    }else{
+      $("#dangerWeight").hide();
+      $("#infoWeight").show();
+    }
+
+    if( addHeight === ""){
+      $("#dangerHeight").show();
+      $("#infoHeight").hide();
+    }else{
+      $("#dangerHeight").hide();
+      $("#infoHeight").show();
+    }
+
+    if( addWidth === ""){
+      $("#dangerWidth").show();
+      $("#infoWidth").hide();
+    }else{
+      $("#dangerWidth").hide();
+      $("#infoWidth").show();
+    }
+
+    if( addLength === ""){
+      $("#dangerLength").show();
+      $("#infoLength").hide();
+    }else{
+      $("#dangerLength").hide();
+      $("#infoLength").show();
+    }
   }
 });
-*/

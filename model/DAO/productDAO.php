@@ -32,7 +32,7 @@ class ProductDAO extends Product
         $value = parent::getValue();
 
         $columns_name = "id,name,price,attributes,value";
-        $columns_value = "'$id','$name',$price,'$attributes',$value";
+        $columns_value = "'$id','$name',$price,'$attributes','$value'";
 
         $this->database->insertRow($this->table_name, $columns_name, $columns_value);
     }
@@ -54,5 +54,10 @@ class ProductDAO extends Product
     public function selectProduct()
     {
         return $this->database->selectRow($this->table_name);
+    }
+
+    public function selectProductCallStoredProcedure()
+    {
+        return $this->database->selectRowStoredProcedure("_select_product");
     }
 }

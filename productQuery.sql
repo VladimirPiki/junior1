@@ -4,3 +4,5 @@
 #CALL _delete_product ('D-ELE-KRST')
 #SELECT * FROM product
 #CALL _select_product
+SELECT id,`name`,price,attributes,CONCAT(attributes,concat(height,"x",width,"x",`length`),concat(kg," ",Kilogrami),mb) AS `atributes` 
+FROM product

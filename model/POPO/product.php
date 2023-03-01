@@ -19,10 +19,11 @@ class Product
     private  $value;
 
 
+
     /**
      * @return string
      */
-    public function getId():string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -32,15 +33,15 @@ class Product
      * 
      * @return void
      */
-    public function setId($id):void
+    public function setId($id): void
     {
-        $this->id=$id;
+        $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getName():string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -50,15 +51,15 @@ class Product
      * 
      * @return void
      */
-    public function setName( $name):void
+    public function setName($name): void
     {
-        $this->name=$name;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getPrice():string
+    public function getPrice(): string
     {
         return $this->price;
     }
@@ -70,13 +71,13 @@ class Product
      */
     public function setPrice($price)
     {
-        $this->price=$price;
+        $this->price = $price;
     }
 
     /**
      * @return string
      */
-    public function getAttributes():string
+    public function getAttributes(): string
     {
         return $this->attributes;
     }
@@ -86,12 +87,12 @@ class Product
      * 
      * @return void
      */
-    public function setAttributes( $attributes):void
+    public function setAttributes($attributes): void
     {
-        $this->attributes=$attributes;
+        $this->attributes = $attributes;
     }
 
-    /**
+        /**
      * @return string
      */
     public function getValue():string

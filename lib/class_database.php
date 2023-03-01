@@ -39,7 +39,9 @@ class DB
 	{
 		$stmt = $this->conn->prepare("INSERT INTO $table_name($columns_name)
 		VALUES($columns_value)");
-		$stmt->execute();
+		if($stmt->execute()){
+			echo "success";
+		};
 	}
 
 	/**
@@ -64,6 +66,18 @@ class DB
 	public function selectRow($table_name)
 	{
 		$stmt = $this->conn->prepare("SELECT * from " . $table_name);
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
+
+	/**
+	 * @param mixed $selectRowStoredProcedureName
+	 * 
+	 * @return [type]
+	 */
+	public function selectRowStoredProcedure($selectRowStoredProcedureName)
+	{
+		$stmt = $this->conn->prepare("call $selectRowStoredProcedureName()");
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}

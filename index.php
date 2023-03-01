@@ -37,7 +37,7 @@
             </div>
             <div>
                 <button id="addproduct">
-                    <a> ADD PRODUCT </a>
+                     ADD PRODUCT 
                 </button>
                 <button>MASS DELETE</button>
             </div>

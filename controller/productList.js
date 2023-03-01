@@ -10,7 +10,6 @@ function getData(action, post_data) {
       let jsonL = json.length;
       let divCol3 = "";
       if (action) {
-        console.log(jsonL);
         for (let i = 0; i < jsonL; i++) {
           if (json[i].id != null) {
             divCol3 +=
@@ -24,14 +23,13 @@ function getData(action, post_data) {
               json[i].name +
               "</p><p>" +
               json[i].price +
-              "</p><p>" +
+              " $</p><p>" +
               json[i].attributes +
-              "</p><p>" +
+              ": " +
               json[i].value +
               "</p></div></div></div></div>";
           }
           $("#showProduct").html(divCol3);
-          console.log(divCol3);
         }
       }
     },
@@ -39,11 +37,9 @@ function getData(action, post_data) {
 }
 
 $(document).ready(function () {
-  //checkLogin();
   getData("product", { table_name: "product" });
 });
 
-///////////////////////////////POST///////////////////////////////////////////////////////////
 function postData(file, podatociOdForm) {
   $.ajax({
     type: "POST",
@@ -52,5 +48,4 @@ function postData(file, podatociOdForm) {
   });
 }
 
-///////////////////////////////DELETE///////////////////////////////////////////////////////
 $(document).on("click");

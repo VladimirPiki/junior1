@@ -36,7 +36,7 @@
             </div>
             <div>
                 <button>
-                    <a> Save </a>
+                    Save
                 </button>
                 <button id="cancel">
                     <a>Cancel</a>
@@ -54,52 +54,66 @@
                     <div class="mb-3">
                         <label for="" class="form-label">SKU</label>
                         <input type="text" class="form-control col-6" id="sku">
+                        <p id="dangerSku" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name">
+                        <p id="dangerName" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Price ($)</label>
                         <input type="number" class="form-control" id="price">
+                        <p id="dangerPrice" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Type switcher</label>
                         <select type="" class="form-select" id="productType">
-                            <option value="">
+                            <option selected disabled>
+                                Type switcher
+                            </option>
+                            <option value="Size">
                                 DVD
                             </option>
-                            <option value="">
+                            <option value="Weight">
                                 Book
                             </option>
-                            <option value="" id="proba">
+                            <option value="Dimension">
                                 Furniture
                             </option>
                         </select>
+                        <p id="infoType" class="form-text" role="alert"> Please select!!!</p>
+                        <p id="dangerValue" class="alert alert-danger " role="alert">Please, provide the data of indicated type!!!</p>
                     </div>
 
-                    <span class="mb-3">
-                        <label for="" class=" form-label">Size</label>
-                        <input type="number" class="form-control" id="price">
-                    </span>
-                    <span class="mb-3">
-                        <label for="" class=" form-label">Height </label>
-                        <input type="number" class="form-control" id="height">
-                        <label for="" class=" form-label">Width </label>
-                        <input type="number" class="form-control" id="width">
-                        <label for="" class=" form-label">Length </label>
-                        <input type="number" class="form-control" id="length">
-                    </span>
-                    <span class="mb-3">
-                        <label for="" class=" form-label">Weight</label>
+                    <div class="mb-3" id="switcherSize">
+                        <label for="" class=" form-label">Size (MB)</label>
+                        <input type="number" class="form-control" id="size">
+                        <p id="infoSize" class="form-text" role="alert">Please, enter the number of megabytes in this field for the size of selected DVD. </p>
+                        <p id="dangerSize" class="alert alert-danger " role="alert"> Please, submit required data!!!</p>
+                    </div>
+
+                    <div class="mb-3" id="switcherWeight">
+                        <label for="" class=" form-label">Weight (KG)</label>
                         <input type="number" class="form-control" id="weight">
-                    </span>
-                    <div id="probaTuka"></div>
+                        <p id="infoWeight" class="form-text" role="alert">Please, enter the number of kilogram in this field for the weight of selected book. </p>
+                        <p id="dangerWeight" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
+                    </div>
 
-
-
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3" id="switcherFurniture">
+                        <label for="" class=" form-label">Height (CM)</label>
+                        <input type="number" class="form-control" id="height">
+                        <p id="dangerHeight" class="alert alert-danger" role="alert">Please, submit required data</p>
+                        <p id="infoHeight" class="form-text" role="alert">Please, enter the number of centimeters in this field for the height of selected furniture. </p>
+                        <label for="" class=" form-label">Width (CM)</label>
+                        <input type="number" class="form-control" id="width">
+                        <p id="dangerWidth" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
+                        <p id="infoWidth" class="form-text" role="alert">Please, enter the number of centimeters in this field for the width of selected furniture. </p>
+                        <label for="" class=" form-label">Length (CM)</label>
+                        <input type="number" class="form-control" id="length">
+                        <p id="dangerLength" class="alert alert-danger" role="alert"> Please, submit required data!!!</p>
+                        <p id="infoLength" class="form-text" role="alert"> Please, enter the number of centimeters in this field for the length of selected furniture. </p>
+                    </div>
                 </form>
             </div>
         </div>
