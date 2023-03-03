@@ -1,3 +1,9 @@
+/**
+ * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
+ * Please, visit my website - https://fkjenimaale.mk/
+ */
+
 $(document).ready(function () {
   $("#dangerSku").hide();
   $("#dangerName").hide();
@@ -12,10 +18,12 @@ $(document).ready(function () {
   $("#switcherWeight").hide();
   $("#switcherFurniture").hide();
 
+  /*This is function for type switcher with condition of show.*/
   $("#productType").on("change", function () {
     $("#infoType").hide();
     let selectOption = $("option:selected").val();
     
+  
     if (selectOption === "Size") {
       $("#switcherSize").show();
       $("#switcherWeight").hide();
@@ -40,7 +48,7 @@ $(document).ready(function () {
   });
 });
 
-///// This is for input field do not recive negative numbers
+/* This is function for input field do not recive negative numbers*/
 $(document).on(
   "input",
   "#size",
@@ -49,7 +57,10 @@ $(document).on(
   }
 );
 
+/*This is function for Insert value to post data and then to insert.php */
 $(document).on("click", "button", function () {
+
+/*This is value from input and option*/
   let addSku = $("#sku").val();
   let addName = $("#name").val();
   let addPrice = $("#price").val();
@@ -60,6 +71,7 @@ $(document).on("click", "button", function () {
   let addWidth = $("#width").val();
   let addLength = $("#length").val();
 
+/*This validation for input fields. If not empty.*/
 if(addSize != ""){
   var addValue=addSize+" MB";
 }
@@ -71,6 +83,8 @@ if(addWeight != ""){
 if(addHeight != "" && addWidth != "" && addLength != ""){
   var addValue=addHeight+"x"+addWidth+"x"+addLength;
 }
+
+/*This is Object for send in function postData(). */
   let objProduct = [
     {
       id: addSku,
@@ -82,9 +96,12 @@ if(addHeight != "" && addWidth != "" && addLength != ""){
     },
   ];
 
+/*This is if pass condition if not empty than send data from object to insert.php*/
   if (addSku != "" && addName != "" && addPrice != "" && addType != "Type switcher" && addValue != undefined) {
     postData("insert", objProduct);
   } else {
+
+    /*This is condition if not pass show warning of wrong input entry */
     if( addSku === ""){
       $("#dangerSku").show();
     }else{

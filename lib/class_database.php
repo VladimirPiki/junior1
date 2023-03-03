@@ -3,10 +3,12 @@
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
  * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
+ * Please, visit my website - https://fkjenimaale.mk/
  */
 
 class DB
 {
+	/* Variable for connection to database */
 	private $servername = "localhost";
 	private $username 	= "root";
 	private $password 	= "";
@@ -14,6 +16,10 @@ class DB
 	private $conn		= null;
 
 	/**
+	 * Connection PHP to Database
+	 * __construct
+	 *
+	 * @return void
 	 */
 	public function __construct()
 	{
@@ -28,14 +34,19 @@ class DB
 		}
 	}
 
+
+
 	/**
-	 * @param mixed $table_name
-	 * @param mixed $columns_name
-	 * @param mixed $columns_value
+	 * All the data comes in this function and insert to database.
 	 * 
-	 * @return [type]
+	 * insertRow
+	 *
+	 * @param  mixed $table_name
+	 * @param  mixed $columns_name
+	 * @param  mixed $columns_value
+	 * @return void
 	 */
-	public function insertRow($table_name, $columns_name, $columns_value)
+	public function insertRow($table_name, $columns_name, $columns_value)	
 	{
 		$stmt = $this->conn->prepare("INSERT INTO $table_name($columns_name)
 		VALUES($columns_value)");
@@ -44,26 +55,33 @@ class DB
 		};
 	}
 
-	posleden test
-
+	
 	/**
-	 * @param mixed $table_name
-	 * @param mixed $pk_name
-	 * @param mixed $pk_value
+	 * All the data comes in this function and delete to database.
 	 * 
-	 * @return [type]
+	 * deleteRow
+	 *
+	 * @param  mixed $table_name
+	 * @param  mixed $pk_name
+	 * @param  mixed $pk_value
+	 * @return void
 	 */
 	public function deleteRow($table_name, $pk_name, $pk_value)
 	{
 		$stmt = $this->conn->prepare("DELETE FROM $table_name 
 		WHERE $pk_name=$pk_value");
-		$stmt->execute();
+		if($stmt->execute()){
+			echo "success";
+		};
 	}
-
+	
 	/**
-	 * @param mixed $table_name
+	 * All the data comes in this function and display all (*) from database.
 	 * 
-	 * @return [type]
+	 * selectRow
+	 *
+	 * @param  mixed $table_name
+	 * @return void
 	 */
 	public function selectRow($table_name)
 	{
@@ -73,6 +91,8 @@ class DB
 	}
 
 	/**
+	 * This function indicates, that we can cover all CRUD operation with this one function.
+	 * 
 	 * @param mixed $selectRowStoredProcedureName
 	 * 
 	 * @return [type]

@@ -1,3 +1,12 @@
+<?php 
+/**
+ * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
+ * Please, visit my website - https://fkjenimaale.mk/
+ * 
+ * This is page for add products.
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +127,6 @@
             </div>
         </div>
     </div>
-
 
     <?php require_once "../view/footer.html"; ?>
 

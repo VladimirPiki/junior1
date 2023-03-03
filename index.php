@@ -1,3 +1,12 @@
+<?php 
+/**
+ * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
+ * Please, visit my website - https://fkjenimaale.mk/
+ * 
+ * This is main page.
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,19 +25,20 @@
 
     <!--jQuery v3.6.1 -->
     <script src="assets/js/jquery-3.6.1.min.js"></script>
+    <!--jQuery my events-->
     <script src="assets/js/app.js"></script>
 
-    <!--my style my events-->
+    <!--My css style --> 
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 
 <body>
-
+<!-- Header -->
     <?php
     require_once "view/header.html";
     ?>
-
+<!-- Navigation for add product -->
     <div class="container">
         <div class="firstSection" id="firstSection">
 
@@ -36,23 +46,26 @@
                 <h1>Product List</h1>
             </div>
             <div>
+                <!-- Navigation for add product -->
                 <button id="addproduct">
                      ADD PRODUCT 
                 </button>
-                <button>MASS DELETE</button>
+                <!-- Button for deleting -->
+                <button id="massDelete">MASS DELETE</button>
             </div>
         </div>
     </div>
 
     <hr>
-
+<!-- In this div is displaying all data from database -->
     <div class="container myContainer">
         <div class="row myContainer" id="showProduct">
         </div>
     </div>
-
+<!-- Footer -->
     <?php require_once "view/footer.html"; ?>
 
+    <!-- My JQuery -->
     <script src="controller/productList.js"></script>
 </body>
 

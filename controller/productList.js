@@ -1,5 +1,13 @@
-// BITNOOO NESTOOO  <input type="checkbox" id="' + json[i].id + '"> vo ova treba da stoj i value="' + json[i].id + '"> ako ima problem
+/**
+ * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
+ * Please, visit my website - https://fkjenimaale.mk/
+ */
 
+/*
+This is function for display value (Select) with AJAX through select.php from database.
+Function getData work with ajax, post method to url and stringify post data. Respond success function data and this data is parsed from array to json with jQuery.parseJSON,and then is json limit with length. For loop is for all json data for display from database to <div id="#showProduct"> in html.
+*/
 function getData(action, post_data) {
   $.ajax({
     type: "POST",
@@ -36,16 +44,15 @@ function getData(action, post_data) {
   });
 }
 
+/*This function is for which table is the displaying */
 $(document).ready(function () {
   getData("product", { table_name: "product" });
 });
 
-function postData(file, podatociOdForm) {
-  $.ajax({
-    type: "POST",
-    url: "../model/" + file + ".php",
-    data: JSON.stringify(podatociOdForm),
+/*This function is for deleting through id value to function postData and then in delete.php */
+$(document).on('click', 'input', function () {
+  let id_html = $(this).attr("id");
+  $(document).on('click', '#massDelete', function () {
+    postData("delete", [{ "pk_id": id_html, "table_name": "product" }]);
   });
-}
-
-$(document).on("click");
+});
