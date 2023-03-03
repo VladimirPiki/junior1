@@ -23,7 +23,7 @@ function getData(action, post_data) {
             divCol3 +=
               '<div class="col-3" id="' +
               json[i].id +
-              '"><div class="card myContainer""><div class="card-body text-center"><input type="checkbox" " id="' +
+              '"><div class="card myContainer""><div class="card-body text-center"><input class="delete-checkbox" type="checkbox" " id="' +
               json[i].id +
               '"><p>' +
               json[i].id +
@@ -52,7 +52,10 @@ $(document).ready(function () {
 /*This function is for deleting through id value to function postData and then in delete.php */
 $(document).on('click', 'input', function () {
   let id_html = $(this).attr("id");
-  $(document).on('click', '#massDelete', function () {
-    postData("delete", [{ "pk_id": id_html, "table_name": "product" }]);
-  });
+  jQuery('div button').on('click', function(){
+    var text = jQuery(this).text();
+    if(text === "MASS DELETE"){
+      postData("delete", [{ "pk_id": id_html, "table_name": "product" }]);
+    }
+});
 });

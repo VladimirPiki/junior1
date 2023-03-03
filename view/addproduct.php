@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
  * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
@@ -47,9 +48,10 @@
                 <button>
                     Save
                 </button>
-                <button id="cancel">
+                <!-- <button id="cancel">
                     <a>Cancel</a>
-                </button>
+                </button> -->
+                <button>Cancel</button>
             </div>
         </div>
     </div>

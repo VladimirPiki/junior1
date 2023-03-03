@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
  * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
@@ -28,41 +29,38 @@
     <!--jQuery my events-->
     <script src="assets/js/app.js"></script>
 
-    <!--My css style --> 
+    <!--My css style -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 
 <body>
-<!-- Header -->
+    <!-- Header -->
     <?php
     require_once "view/header.html";
     ?>
-<!-- Navigation for add product -->
+    <!-- Navigation for add product -->
     <div class="container">
         <div class="firstSection" id="firstSection">
-
             <div class="mt-3">
                 <h1>Product List</h1>
             </div>
             <div>
-                <!-- Navigation for add product -->
-                <button id="addproduct">
-                     ADD PRODUCT 
-                </button>
-                <!-- Button for deleting -->
-                <button id="massDelete">MASS DELETE</button>
+                   <!-- Navigation for add product-->
+                <button>ADD PRODUCT</button>
+                    <!-- Button for deleting-->
+                <button>MASS DELETE</button>
             </div>
         </div>
     </div>
 
     <hr>
-<!-- In this div is displaying all data from database -->
+    <!-- In this div is displaying all data from database -->
     <div class="container myContainer">
         <div class="row myContainer" id="showProduct">
         </div>
     </div>
-<!-- Footer -->
+    <!-- Footer -->
     <?php require_once "view/footer.html"; ?>
 
     <!-- My JQuery -->
